@@ -1,12 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import consoleText from "./util/console";
 import shadowAnimation from "./util/shadow_animation";
+import * as experience from "./raw/experiences.json";
 
 import FullSection from "./components/fullSection";
 import SkillCard from "./components/skillCard";
+import ExperienceDetail from "./components/experienceDetail";
+
+import { HashLink, NavHashLink } from "react-router-hash-link";
 
 function App() {
+  const [selectedExper, setSelectedExper] = useState(
+    Object.keys(experience)[0]
+  );
+
   useEffect(() => {
     consoleText(
       ["Software Engineer.", "Full Stack Developer.", "Mobile Developer."],
@@ -28,29 +36,87 @@ function App() {
         <ul className=" last:border-b-2 last:border-slate-700 mt-10 cursor-pointer">
           <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
             <p className=" transition-all ease-in group-hover:text-2xl duration-200">
-              About
+              <NavHashLink
+                smooth
+                to="/#about"
+                className={({ isActive }) =>
+                  document.location.hash == "#about"
+                    ? "text-orange-500"
+                    : undefined
+                }
+              >
+                About
+              </NavHashLink>
             </p>
           </li>
           <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
-            <p className=" ease-in group-hover:text-2xl duration-200">Skills</p>
-          </li>
-          <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
-            <p className=" ease-in group-hover:text-2xl duration-200">Work</p>
-          </li>
-          <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
             <p className=" ease-in group-hover:text-2xl duration-200">
-              Experiance
+              <NavHashLink
+                smooth
+                to="#skills"
+                className={({ isActive }) =>
+                  document.location.hash == "#skills"
+                    ? "text-orange-500"
+                    : undefined
+                }
+              >
+                Skills
+              </NavHashLink>
             </p>
           </li>
           <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
             <p className=" ease-in group-hover:text-2xl duration-200">
-              Contact
+              <NavHashLink
+                smooth
+                to="#work"
+                className={({ isActive }) =>
+                  document.location.hash == "#work"
+                    ? "text-orange-500"
+                    : undefined
+                }
+                onClick={() => console.log("Curr : ", document.activeElement)}
+              >
+                Work
+              </NavHashLink>
+            </p>
+          </li>
+          <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
+            <p className=" ease-in group-hover:text-2xl duration-200">
+              <NavHashLink
+                smooth
+                to="#experience"
+                className={({ isActive }) =>
+                  document.location.hash == "#experience"
+                    ? "text-orange-500"
+                    : undefined
+                }
+              >
+                Experience
+              </NavHashLink>
+            </p>
+          </li>
+          <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
+            <p className=" ease-in group-hover:text-2xl duration-200">
+              <NavHashLink
+                smooth
+                to="#contact"
+                className={({ isActive }) =>
+                  document.location.hash == "#contact"
+                    ? "text-orange-500"
+                    : undefined
+                }
+              >
+                Contact
+              </NavHashLink>
             </p>
           </li>
         </ul>
       </div>
       <div className="relative min-h-screen bg-slate-700 lg:ml-44 md:ml-40 sm:ml-36 w-full">
-        <section className="px-6 h-screen flex flex-col justify-center text-white bg-[url('../assets/bg-1.jpg')] bg-cover bg-no-repeat w-full flex-1">
+        <section
+          className="px-6 h-screen flex flex-col justify-center text-white bg-[url('../assets/bg-1.jpg')] bg-cover bg-no-repeat w-full flex-1"
+          id="about"
+        >
           <h1
             className=" lg:text-9xl md:text-8xl sm:text-6xl text-3xl font-bold font-mono"
             ref={titleRef}
@@ -73,8 +139,11 @@ function App() {
             </div>
           </div>
         </section>
-        <FullSection>
-          <div className="md:flex justify-between px-6 gap-9">
+        <FullSection id="skills">
+          <div
+            className="md:flex justify-between px-6 gap-9"
+            onFocusCapture={() => console.log("Focused skills:: ")}
+          >
             <div className=" flex-1">
               <h1 className=" text-8xl text-orange-500 font-bold font-serif pr-6 mb-8">
                 Skills
@@ -94,6 +163,25 @@ function App() {
                 I have mentioned are not the be all end all for me, I am more
                 than willing to learn any frameworks / technologies that a
                 project requires.
+                <br />
+                <br />
+                Visit my{" "}
+                <a
+                  href="https://www.linkedin.com/in/amanuel-g/"
+                  className=" text-red-600"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>{" "}
+                and my{" "}
+                <a
+                  href="https://github.com/amanuel15"
+                  className="text-red-600"
+                  target="_blank"
+                >
+                  Github
+                </a>{" "}
+                for more.
               </p>
             </div>
             <div className=" flex-1 flex flex-wrap md:gap-3 gap-2 md:mt-0 mt-4 justify-center">
@@ -124,6 +212,37 @@ function App() {
                 desc="I have had a
                 first hand experience of the headaches this discrepancies could
                 lead to"
+              />
+            </div>
+          </div>
+        </FullSection>
+        <FullSection id="contact">
+          <div className="self-center w-3/4 h-96 -translate-y-8">
+            <h2 className="text-4xl font-semibold font-serif mb-9 slash flex">
+              Where I've Worked
+            </h2>
+            <div className="flex gap-6">
+              <ul className=" text-orange-500 cursor-pointer transition-all duration-300">
+                {Object.keys(experience).map((key) => {
+                  if (key != "default")
+                    return (
+                      <li
+                        className={`border-l-4 pl-5 ${
+                          key == selectedExper
+                            ? "border-orange-500"
+                            : "border-slate-600"
+                        } hover:bg-slate-600 py-4 pr-3`}
+                        onClick={() => setSelectedExper(key)}
+                        key={key}
+                      >
+                        {key}
+                      </li>
+                    );
+                })}
+              </ul>
+              <ExperienceDetail
+                detail={experience[selectedExper]}
+                place={selectedExper}
               />
             </div>
           </div>

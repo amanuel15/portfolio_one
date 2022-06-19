@@ -1,0 +1,30 @@
+{
+    "Kodastropi": {
+        "title": "Mobile Developer",
+        "span": "June 2020 - Dec 2021",
+        "roles": [
+            "Worked within an IT team, comprising 5 members, and collaborated with marketers to design an E-commerce mobile application",
+            "Worked with various technologies including flutter, firebase firestore database, firebase cloud functions, and firebase push notification",
+            "I was responsible for the flutter app and api integration"
+        ]
+    },
+    "360 Ground": {
+        "title": "Full Stack | Mobile Developer",
+        "span": "June 2021 - present",
+        "roles": [
+            "Write clean, maintainable, performant code for a myriad of client and internal projects",
+            "Work with different languages, platforms, and frameworks such as JavaScript, React native, React, Node.js, Flutter, Typescript, Dart, AWS, Firebase, docker, Nginx, Frappe, Nest.js and Next.js",
+            "Work within an agile team, utilizing issue tracking tools like Jira",
+            "Maintain enterprise systems like Meda-pay, Meda-chat and Meda-shi"
+        ]
+    },
+    "Freelance": {
+        "title": "Freelance Developer",
+        "span": "2018 - present",
+        "roles": [
+            "Develop websites mobile applications, and APIs for various clients ",
+            "Work with React, Vue.js, Node.js, React-native, Flutter, and anything that a project requires to deliver robust productsWo",
+            "Work as the sole developer of various projects from start to finish"
+        ]
+    }
+}
