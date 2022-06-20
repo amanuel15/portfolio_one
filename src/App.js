@@ -7,6 +7,7 @@ import * as experience from "./raw/experiences.json";
 import FullSection from "./components/fullSection";
 import SkillCard from "./components/skillCard";
 import ExperienceDetail from "./components/experienceDetail";
+import MobileNav from "./components/mobileNav";
 
 import { HashLink, NavHashLink } from "react-router-hash-link";
 
@@ -14,6 +15,7 @@ function App() {
   const [selectedExper, setSelectedExper] = useState(
     Object.keys(experience)[0]
   );
+  const [showMenuSection, setShowMenuSection] = useState(false);
 
   useEffect(() => {
     consoleText(
@@ -28,9 +30,48 @@ function App() {
   const underscoreRef = useRef();
   const titleRef = useRef();
 
+  const menuRef = useRef();
+
+  const showMenu = () => {
+    console.log("Show");
+    setShowMenuSection(true);
+    document.body.style.overflow = "hidden";
+    menuRef.current.classList.remove("hidden");
+  };
+
+  const hideMenu = () => {
+    console.log("Hide");
+    setShowMenuSection(false);
+    document.body.style.overflow = "auto";
+    menuRef.current.classList.add("hidden");
+  };
+
   return (
     <div className="mx-auto bg-slate-700 flex sm:flex-row flex-col text-white">
-      <div className="sm:hidden">top</div>
+      {/* <div className="sm:hidden">top</div> */}
+      {/* <MobileNav /> */}
+      {showMenuSection && (
+        <div
+          className=" text-2xl absolute top-4 right-4 z-10 sm:hidden"
+          onClick={hideMenu}
+        >
+          X
+        </div>
+      )}
+      {!showMenuSection && (
+        <div
+          className=" text-2xl absolute top-4 right-4 sm:hidden text-white z-10"
+          onClick={showMenu}
+        >
+          =
+        </div>
+      )}
+      <section
+        className="min-h-screen flex flex-col justify-center py-3 bg-gray-800 border-b-2 border-slate-600 sm:hidden hidden transition-all duration-500 overflow-hidden"
+        ref={menuRef}
+      >
+        <MobileNav hideMenu={hideMenu} />
+      </section>
       <div className="lg:w-44 md:w-40 sm:w-36 sm:block hidden bg-slate-800 p-2 text-white text-center fixed bottom-0 top-0 right-auto h-screen z-10">
         <p className=" text-4xl py-10 font-bold">Aman</p>
         <ul className=" last:border-b-2 last:border-slate-700 mt-10 cursor-pointer">
@@ -143,6 +184,10 @@ function App() {
           <div
             className="md:flex justify-between px-6 gap-9"
             onFocusCapture={() => console.log("Focused skills:: ")}
+            // onPointerOver={() => {
+            //   document.location.hash = "#skills";
+            // }}
+            // onScroll={(e) => console.log("Scrolled over skills: ", e)}
           >
             <div className=" flex-1">
               <h1 className=" text-8xl text-orange-500 font-bold font-serif pr-6 mb-8">
