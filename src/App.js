@@ -9,7 +9,8 @@ import SkillCard from "./components/skillCard";
 import ExperienceDetail from "./components/experienceDetail";
 import MobileNav from "./components/mobileNav";
 
-import { HashLink, NavHashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
+import { HiMenu, HiX } from "react-icons/hi";
 
 function App() {
   const [selectedExper, setSelectedExper] = useState(
@@ -55,7 +56,7 @@ function App() {
           className=" text-2xl absolute top-4 right-4 z-10 sm:hidden"
           onClick={hideMenu}
         >
-          X
+          <HiX />
         </div>
       )}
       {!showMenuSection && (
@@ -63,7 +64,7 @@ function App() {
           className=" text-2xl absolute top-4 right-4 sm:hidden text-white z-10"
           onClick={showMenu}
         >
-          =
+          <HiMenu />
         </div>
       )}
       <section
@@ -72,7 +73,7 @@ function App() {
       >
         <MobileNav hideMenu={hideMenu} />
       </section>
-      <div className="lg:w-44 md:w-40 sm:w-36 sm:block hidden bg-slate-800 p-2 text-white text-center fixed bottom-0 top-0 right-auto h-screen z-10">
+      <div className="lg:w-44 md:w-40 sm:w-36 sm:block hidden bg-slate-800 p-2 text-white text-center fixed bottom-0 top-0 right-auto min-h-screen z-10">
         <p className=" text-4xl py-10 font-bold">Aman</p>
         <ul className=" last:border-b-2 last:border-slate-700 mt-10 cursor-pointer">
           <li className="py-4 text-lg hover:text-orange-500 border-t-2 border-slate-700 font-semibold group">
@@ -232,38 +233,37 @@ function App() {
             <div className=" flex-1 flex flex-wrap md:gap-3 gap-2 md:mt-0 mt-4 justify-center">
               <SkillCard
                 title="React Native"
-                subTitle="2 years"
-                desc="I have had a
-                first hand experience of the headaches this discrepancies could
-                lead to"
+                subTitle="As an employee and freelancer"
+                desc="I have had an extensive experience working with react native including my biggest project yet, a booking and e-commerce application for Moenco"
               />
               <SkillCard
                 title="React JS"
-                subTitle="2 years"
-                desc="I have had a
-                first hand experience of the headaches this discrepancies could
-                lead to"
+                subTitle="As an employee and freelancer"
+                desc="I have designed and delivered multiple web applications using react and other react based frameworks like docusaurus"
               />
               <SkillCard
                 title="Node JS"
-                subTitle="Long time"
-                desc="I have had a
-                first hand experience of the headaches this discrepancies could
-                lead to"
+                subTitle="As an employee and freelancer"
+                desc="I have built various backend REST APIs both for a client and personal projects. I have also built CLIs with node like npmjs.com/package/mega-pkg"
               />
               <SkillCard
                 title="Flutter"
+                subTitle="As an employee and freelancer"
+                desc="I have used flutter to build multiple mobile applications including my final project for university, I also have deep knowledge of dart"
+              />
+              {/* <SkillCard
+                title="Vue.js"
                 subTitle="As a freelancer"
                 desc="I have had a
                 first hand experience of the headaches this discrepancies could
                 lead to"
-              />
+              /> */}
             </div>
           </div>
         </FullSection>
-        <FullSection id="contact">
-          <div className="self-center w-3/4 h-96 -translate-y-8">
-            <h2 className="text-4xl font-semibold font-serif mb-9 slash flex">
+        <FullSection id="experience">
+          <div className="self-center w-3/4 h-96 mx-auto">
+            <h2 className="lg:text-4xl md:text-3xl text-2xl font-semibold font-serif md:mb-9 mb-3 slash flex">
               Where I've Worked
             </h2>
             <div className="flex gap-6">
@@ -290,6 +290,36 @@ function App() {
                 place={selectedExper}
               />
             </div>
+          </div>
+        </FullSection>
+        <FullSection id="contact">
+          <div className=" mx-auto w-2/3">
+            <h1 className=" text-5xl text-orange-500 font-serif sm:mb-10 mb-7 font-bold">
+              Contact Me
+            </h1>
+            <p className="text-gray-300 sm:mb-5 mb-3 font-extralight font-serif">
+              I’m interested in freelance opportunities – especially ambitious
+              or large projects. However, if you have other request or question,
+              don’t hesitate to use the form.
+            </p>
+            <div className="flex justify-between gap-2 mb-3 w-full">
+              <input
+                className="bg-gray-800 p-4 rounded-md focus:rounded-none w-1/2 focus:border-b-2 focus:border-b-orange-500 focus:outline-none focus:-translate-y-1 transition-transform duration-300"
+                placeholder="Name"
+              />
+              <input
+                className=" bg-gray-800 p-4 rounded-md w-1/2 focus:rounded-none focus:border-b-2 focus:border-b-orange-500 focus:outline-none focus:-translate-y-1 transition-transform duration-300"
+                placeholder="Email"
+              />
+            </div>
+            <input
+              className="flex-1 bg-gray-800 p-4 rounded-md w-full mb-3 focus:rounded-none focus:border-b-2 focus:border-b-orange-500 focus:outline-none focus:-translate-y-1 transition-transform duration-300"
+              placeholder="Subject"
+            />
+            <textarea
+              className="flex-1 bg-gray-800 p-4 rounded-md w-full md:min-h-[10rem] min-h-[8rem] focus:rounded-none focus:border-b-2 focus:border-b-orange-500 focus:outline-none focus:-translate-y-1 transition-transform duration-300"
+              placeholder="Message"
+            />
           </div>
         </FullSection>
       </div>

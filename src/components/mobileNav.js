@@ -2,10 +2,10 @@ import { NavHashLink } from "react-router-hash-link";
 
 export default function MobileNav({ hideMenu }) {
   return (
-    <div className="mx-auto">
+    <div className="ml-[35%]">
       <ul className="mt-10 cursor-pointer font-serif text-3xl">
         <li className="py-4 hover:text-orange-500 border-slate-700 font-semibold group">
-          <p className=" transition-all ease-in group-hover:text-5xl duration-200">
+          <p className=" transition-all ease-in group-hover:text-4xl duration-200">
             <NavHashLink
               smooth
               to="/#about"
@@ -21,7 +21,7 @@ export default function MobileNav({ hideMenu }) {
           </p>
         </li>
         <li className="py-4 hover:text-orange-500 border-slate-700 font-semibold group">
-          <p className=" ease-in group-hover:text-2xl duration-200">
+          <p className=" ease-in group-hover:text-4xl duration-200">
             <NavHashLink
               smooth
               to="#skills"
@@ -37,7 +37,7 @@ export default function MobileNav({ hideMenu }) {
           </p>
         </li>
         <li className="py-4 hover:text-orange-500 border-slate-700 font-semibold group">
-          <p className=" ease-in group-hover:text-2xl duration-200">
+          <p className=" ease-in group-hover:text-4xl duration-200">
             <NavHashLink
               smooth
               to="#work"
@@ -53,7 +53,7 @@ export default function MobileNav({ hideMenu }) {
           </p>
         </li>
         <li className="py-4 hover:text-orange-500 border-slate-700 font-semibold group">
-          <p className=" ease-in group-hover:text-2xl duration-200">
+          <p className=" ease-in group-hover:text-4xl duration-200">
             <NavHashLink
               smooth
               to="#experience"
@@ -69,7 +69,7 @@ export default function MobileNav({ hideMenu }) {
           </p>
         </li>
         <li className="py-4 hover:text-orange-500 border-slate-700 font-semibold group">
-          <p className=" ease-in group-hover:text-2xl duration-200">
+          <p className=" ease-in group-hover:text-4xl duration-200">
             <NavHashLink
               smooth
               to="#contact"
